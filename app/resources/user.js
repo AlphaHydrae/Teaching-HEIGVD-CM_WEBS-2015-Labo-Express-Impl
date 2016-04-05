@@ -122,7 +122,7 @@ router.route('/logister')
 					user.save(function(err, userSaved) {
 						if (err) return next(err);
 
-						return res.json({ userId: userSaved.id }).end();
+						return res.status(201).json({ userId: userSaved.id }).end();
 					});
 				}
 			});
