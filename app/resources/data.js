@@ -172,12 +172,12 @@ function updateIssue(issue) {
 }
 
 function populateIssues(res) {
-	var creationDate = randomDate(new Date(2012, 0, 1), new Date(2015, 6, 1));
 
 	var data = [];
 	for (var i = 0; i < 100; i++) {
 		var issueType = issueTypes[randomInt(0, issueTypes.length)];
 		var randUrls = urls[_.where(issueTypeData, { name: issueType.name })[0]._idx_]
+    var creationDate = randomDate(new Date(2012, 0, 1), new Date(2015, 6, 1));
 
 		data.push({
 			description: descriptionsAndComments[randomInt(0, descriptionsAndComments.length)],
@@ -201,7 +201,7 @@ function populateIssues(res) {
 		var actionPromises = [];
 		var issuesUpdated = [];
 		for (var i = 0; i < issues.length; i++) {
-			var actionPromise = generateActions(creationDate, issues[i]);
+			var actionPromise = generateActions(issues[i].createdOn, issues[i]);
 
 			actionPromise.then(function(issue) {
 				issuesUpdated.push(issue);
