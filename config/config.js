@@ -27,7 +27,7 @@ var config = {
     root: rootPath,
     app: {
       name: 'citizen-engagement',
-	    storageEnabled: true,
+	    storageEnabled: false,
 	    storagePath: '/tmp',
 	    eventTypes: {
 		    issue: process.env.CITIZEN_ACTION_TYPE_ISSUE,
